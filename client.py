@@ -13,7 +13,7 @@ def ai_process(command):
         model="gemini-3-flash-preview",
         contents=command,
         config={
-            "system_instruction": "You are Jarvis, a helpful AI assistant like Alexa or Siri. Keep responses short, clear, and conversational."
+            "system_instruction": "You are Nexa, a helpful AI assistant like Alexa or Siri. Keep responses short, clear, and conversational."
         }
     )
 
