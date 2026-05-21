@@ -15,11 +15,11 @@ recognizer = sr.Recognizer()
 if __name__ == "__main__":
     speak("Initializing Nexa.....")
     while True:
-        # obtain audio from the microphone
+    # obtain audio from the microphone
         r = recognizer
         print("Recognizing...") 
 
-        # recognize speech using google
+    # recognize speech using google
         try:
             with sr.Microphone() as source:
                 print("Listening...")
@@ -27,11 +27,11 @@ if __name__ == "__main__":
                 audio = r.listen(source, timeout=2, phrase_time_limit=1)
             word = r.recognize_google(audio)
 
-            # Listen for the wake word "nexa"
+    # Listen for the wake word "nexa"
             if ("nexa" in word.lower()):
                 speak("ya")
                 print("ya")  # optional: print to console for debugging
-                #listen for command
+    #listen for command
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source, duration=1)
                     print("Nexa active...")
