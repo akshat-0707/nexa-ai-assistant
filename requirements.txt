@@ -3,5 +3,6 @@ PyAudio
 python-dotenv
 google-genai
 gTTS
-pygame
+pygame-ce
 requests
+psutil
