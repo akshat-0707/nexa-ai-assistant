@@ -24,18 +24,19 @@ if __name__ == "__main__":
             with sr.Microphone() as source:
                 print("Listening...")
                 r.adjust_for_ambient_noise(source, duration=1)
-                audio = r.listen(source, timeout=2, phrase_time_limit=1)
+                audio = r.listen(source, timeout=5, phrase_time_limit=3)
             word = r.recognize_google(audio)
 
     # Listen for the wake word "nexa"
-            if ("nexa" in word.lower()):
+            wake_words = ["nexa", "next", "nexus", "alexa"]
+            if any(w in word.lower() for w in wake_words):
                 speak("ya")
                 print("ya")  # optional: print to console for debugging
     #listen for command
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source, duration=1)
                     print("Nexa active...")
-                    audio = r.listen(source, timeout=4, phrase_time_limit=3)
+                    audio = r.listen(source, timeout=8, phrase_time_limit=8)
                     command = r.recognize_google(audio)
                     processCommand(command)
 
